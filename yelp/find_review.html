@@ -1,3 +1,11 @@
+<?php
+  //Used for maintaining sessions and ensuring that login information persists between pages and if the user decides to logout
+  include('server.php');
+  session_start();
+
+?>
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,7 +17,7 @@
 	Search by Username: <input type="text" id="username"><br>
 	Search by Restaurant: <input type="text" id="restaurant"><br>
 	Search by Keyword: <input type="text" id="keyword"><br>
-	
+
 	<button type="button" id="find_review">Submit</button>
 
 	<!-- for the actual result of the user query -->
