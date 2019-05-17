@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+	<p>User Actions</p>
+
+	<!-- INSERT: user 		CREATE-->
+	<form action="http://web.engr.oregonstate.edu/~borkaraa/yelp/sign_up">
+    <input type="submit" value="Sign Up" />
+	</form>
+
+	<!-- INSERT: review 		CREATE-->
+	<form action="http://web.engr.oregonstate.edu/~borkaraa/yelp/write_review">
+    <input type="submit" value="Write a Review" />
+	</form>
+
+	<!-- SELECT: dynamic filter search a table (review) 	READ-->
+	<form action="http://web.engr.oregonstate.edu/~borkaraa/yelp/find_review">
+    <input type="submit" value="Find a Review" />
+    </form>
+
+    <!-- SELECT: user_restaurant, restaurant 		READ-->
+	<form action="http://web.engr.oregonstate.edu/~borkaraa/yelp/check_owners">
+    <input type="submit" value="Check a Restaurant's Owners" />
+	</form>
+
+	<!-- SELECT: restaurant, review, user 		READ-->
+	<form action="http://web.engr.oregonstate.edu/~borkaraa/yelp/check_reviews">
+    <input type="submit" value="Check a Restaurant's Reviews" />
+	</form>
+
+	<!-- SELECT: address 		READ-->
+	<form action="http://web.engr.oregonstate.edu/~borkaraa/yelp/locate_restaurant">
+    <input type="submit" value="Locate a Restaurant" />
+	</form>
+
+
+	<p>Restaurant Owner Actions</p>
+
+	<!-- INSERT: user_restaurant 		CREATE-->
+	<form action="http://web.engr.oregonstate.edu/~borkaraa/yelp/reg_ownership">
+    <input type="submit" value="Register Ownership of Restaurant" />
+	</form>
+
+	<!-- INSERT: restaurant 		CREATE-->
+	<form action="http://web.engr.oregonstate.edu/~borkaraa/yelp/reg_restaurant">
+    <input type="submit" value="Register a Resaurant" />
+	</form>
+
+	<!-- INSERT: address 		CREATE-->
+	<form action="http://web.engr.oregonstate.edu/~borkaraa/yelp/reg_addr">
+    <input type="submit" value="Register an Address" />
+	</form>
+
+	<!-- DELETE: many-to-many[user_restaurant] => (remove owner from restaurant) 		
+		REMOVE-->
+	<form action="http://web.engr.oregonstate.edu/~borkaraa/yelp/rm_rest_ownership">
+    <input type="submit" value="Remove Ownership of Restaurant" />
+    </form>
+
+	<!-- UPDATE: edit restaurant information 		UPDATE-->
+	<form action="http://web.engr.oregonstate.edu/~borkaraa/yelp/edit_rest_info">
+    <input type="submit" value="Edit Restaurant Information" />
+	</form>
+
+</body>
+</html>
