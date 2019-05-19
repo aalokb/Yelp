@@ -1,3 +1,7 @@
+<?php
+	include('server.php')
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -5,15 +9,17 @@
 </head>
 <body>
 	<p>Get Started</p>
-	<br>
+	<form action="sign_up.php" method="post">
 		E-mail: <input type="text" name="email"><br>
 	 	Username: <input type="text" name="username"><br>
 	 	Password: <input type="password" name="password"><br>
-	  	<button type="button" id="sign_up">Submit</button>
-	  	<button type="button" class="clear">Clear</button>
+		<input type="submit" name="sign_up_submit" value="Submit">
+	</form>
+
+	<!-- for the actual result of the user query -->
+	<span id="sign_up_result">
+
+	</span>
+
 </body>
 </html>
-
-<?php
-	include('server.php')
-?>

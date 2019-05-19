@@ -12,28 +12,40 @@ $opt = [
     PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
     PDO::ATTR_EMULATE_PREPARES => false,
 ];
-if (isset($_POST["submit"])){
-try{
+
+if (isset($_POST["sign_up_submit"])){
     $username = $_POST["username"];
-    $restaurant = $_POST["restaurant"];
-    $keyword = $_POST["keyword"];
+    $email = $_POST["email"];
+    $password = $_POST["password"];
+
     $pdo = new PDO($dsn, $user, $pass, $opt);
-    $res = $pdo->prepare("SELECT content, rating, price FROM review
+    $res = $pdo->prepare("INSERT INTO user (username, email, password) VALUES (?, ?, ?)");
+
+    $res->execute([$username, $email, $password]);
+
+    echo "<h1> Thanks for signing up! </h1>";
+}
+
+if (isset($_POST["submit"])){
+
+  $username = $_POST["username"];
+  $restaurant = $_POST["restaurant"];
+  $keyword = $_POST["keyword"];
+
+  $pdo = new PDO($dsn, $user, $pass, $opt);
+  $res = $pdo->prepare("SELECT content, rating, price FROM review
 INNER JOIN user ON review.user_id = user.id
 INNER JOIN restaurant ON review.restaurant_id = restaurant.id
 WHERE user.id = ?
 OR restaurant.id = ?
 OR  review.content  LIKE ?");
-    $res->execute([$username,$restaurant,$keyword]);
-    foreach($res as $row){
-      echo "<h1>Content: " . $row["content"] . "</h1>";
-      echo "<h1>Rating: " . $row["rating"] . "</h1>";
-      echo "<h1>Price: " . $row["price"] . "</h1>";
-    }
+  $res->execute([$username,$restaurant,$keyword]);
+  foreach($res as $row){
+    echo "<h1>Content: " . $row["content"] . "</h1>";
+    echo "<h1>Rating: " . $row["rating"] . "</h1>";
+    echo "<h1>Price: " . $row["price"] . "</h1>";
   }
-catch (\PDOException $e){
+}
 
-}
-}
 
 ?>
