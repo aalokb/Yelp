@@ -35,7 +35,7 @@ if (isset($_POST["write_review_submit"])){
     $user_id = $_POST["user_id"];
     $restaurant_id = $_POST["restaurant_id"];
     $price = $_POST["price"];
-    
+
     $pdo = new PDO($dsn, $user, $pass, $opt);
     $res = $pdo->prepare("INSERT INTO review (content, rating, user_id, restaurant_id, price) VALUES (?, ?, ?, ?, ?)");
 
@@ -125,6 +125,18 @@ WHERE restaurant.id = ?");
       //'loop' for the one row...
       echo "<h1>" . $row["street"] . ", " . $row["city"] . ", " . $row["state"] . ", " . $row["zipcode"] . "</h1>";
     }
+}
+
+if (isset($_POST["reg_ownership_submit"])){
+    // now that we have the correctly generated HTML (extracted from the DB), lets insert the
+    // users selected data
+    $restaurant_id = $_POST["restaurant_id"];
+    $user_id = $_POST["user_id"];
+    $pdo = new PDO($dsn, $user, $pass, $opt);
+    $res = $pdo->prepare("INSERT INTO user_restaurant (user_id, restaurant_id) VALUES (?, ?)");
+
+    $res->execute([$user_id,$restaurant_id]);
+    echo "Thanks for registering your restaurant";
 }
 
 
