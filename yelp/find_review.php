@@ -10,7 +10,7 @@
 	  	Search by Username: <input type="text" name="username"><br>
 		Search by Restaurant: <input type="text" name="restaurant"><br>
 		Search by Keyword: <input type="text" name="keyword"><br>
-		<input type="submit" name="submit" value="Submit">
+		<input type="submit" name="find_review_submit" value="Submit">
 	</form>
 
 	<!-- for the actual result of the user query -->

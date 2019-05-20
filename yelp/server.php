@@ -26,7 +26,32 @@ if (isset($_POST["sign_up_submit"])){
     echo "<h1> Thanks for signing up! </h1>";
 }
 
-if (isset($_POST["submit"])){
+
+
+
+
+if (isset($_POST["write_review_submit"])){
+    // now that we have the correctly generated HTML (extracted from the DB), lets insert the
+    // users selected data
+    $content = $_POST["content"];
+    $rating = $_POST["rating"];
+    $user_id = $_POST["user_id"];
+    $restaurant_id = $_POST["restaurant_id"];
+    $price = $_POST["price"];
+    
+    $pdo = new PDO($dsn, $user, $pass, $opt);
+    $res = $pdo->prepare("INSERT INTO review (content, rating, user_id, restaurant_id, price) VALUES (?, ?, ?, ?, ?)");
+
+    $res->execute([$content, $rating, $user_id, $restaurant_id, $price]);
+
+    echo "<h1> Thanks for reviewing! </h1>";
+}
+
+
+
+
+
+if (isset($_POST["find_review_submit"])){
 
   $username = $_POST["username"];
   $restaurant = $_POST["restaurant"];
