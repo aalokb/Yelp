@@ -18,35 +18,26 @@ $opt = [
 
 
     echo <<<HTMLINPUT
-    <form action="write_review.php" method="post">
-
-        User ID: <input type="text" name="user_id"><br>
-        Restaurant ID:
-        <select name="restaurant_id">
+        <p>Find a Restaurant's Owners</p>
+        Select Restaurant:
+        <form action="check_owners.php" method="post">
+            <select name="restaurant_id">
 HTMLINPUT;
 
-     //QUERY THEN ECHO RESULTS HERE
+    //QUERY THEN ECHO RESULTS HERE
     $pdo = new PDO($dsn, $user, $pass, $opt);
-    $res = $pdo->prepare("SELECT id FROM restaurant");
+    $res = $pdo->prepare("SELECT id, name FROM restaurant");
     $res->execute();
     foreach($res as $row){
           echo <<<HTMLINPUT
-            <option value="{$row["id"]}"> restaurant {$row['id']} </option>
+            <option value="{$row["id"]}">{$row["name"]} </option>
 
 HTMLINPUT;
     }
-
-    echo "</select><br>";
-
     echo <<<HTMLINPUT
-    Review: <input type="textarea" name="content"><br>
-
-    Rating: <input type="number" name="rating"><br>
-
-    Price (1-3):
-    <input type="number" name="price"><br>
-    <input type="submit" name="write_review_submit" value="Submit">
-  </form>
+            </select><br>
+            <input type="submit" name="check_owners_submit" value="Submit">
+        </form>
 HTMLINPUT;
 
 

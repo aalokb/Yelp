@@ -27,9 +27,6 @@ if (isset($_POST["sign_up_submit"])){
 }
 
 
-
-
-
 if (isset($_POST["write_review_submit"])){
     // now that we have the correctly generated HTML (extracted from the DB), lets insert the
     // users selected data
@@ -48,9 +45,6 @@ if (isset($_POST["write_review_submit"])){
 }
 
 
-
-
-
 if (isset($_POST["find_review_submit"])){
 
   $username = $_POST["username"];
@@ -64,12 +58,73 @@ INNER JOIN restaurant ON review.restaurant_id = restaurant.id
 WHERE user.id = ?
 OR restaurant.id = ?
 OR  review.content  LIKE ?");
+
   $res->execute([$username,$restaurant,$keyword]);
+
   foreach($res as $row){
     echo "<h1>Content: " . $row["content"] . "</h1>";
     echo "<h1>Rating: " . $row["rating"] . "</h1>";
     echo "<h1>Price: " . $row["price"] . "</h1>";
+    echo "<br><br>";
   }
+}
+
+
+if (isset($_POST["check_owners_submit"])){
+    // now that we have the correctly generated HTML (extracted from the DB), lets insert the
+    // users selected data
+    $restaurant_id = $_POST["restaurant_id"];
+
+    $pdo = new PDO($dsn, $user, $pass, $opt);
+    $res = $pdo->prepare("SELECT username FROM user
+INNER JOIN user_restaurant ON user.id = user_restaurant.user_id
+INNER JOIN restaurant ON restaurant.id = user_restaurant.restaurant_id
+WHERE restaurant.id = ?");
+
+    $res->execute([$restaurant_id]);
+
+    foreach($res as $row){
+      echo "<h1>Owner: " . $row["username"] . "</h1>";
+    }
+}
+
+
+if (isset($_POST["check_reviews_submit"])){
+    // now that we have the correctly generated HTML (extracted from the DB), lets insert the
+    // users selected data
+    $restaurant_id = $_POST["restaurant_id"];
+
+    $pdo = new PDO($dsn, $user, $pass, $opt);
+    $res = $pdo->prepare("SELECT content, rating, price FROM review
+INNER JOIN restaurant ON review.restaurant_id = restaurant.id
+WHERE restaurant.id = ?");
+
+    $res->execute([$restaurant_id]);
+
+    foreach($res as $row){
+      echo "<h1>Review: " . $row["content"] . "</h1>";
+      echo "<h1>Rating: " . $row["rating"] . "</h1>";
+      echo "<h1>Price: " . $row["price"] . "</h1>";
+      echo "<br><br>";
+    }
+}
+
+
+if (isset($_POST["locate_restaurant_submit"])){
+    // now that we have the correctly generated HTML (extracted from the DB), lets insert the
+    // users selected data
+    $restaurant_id = $_POST["restaurant_id"];
+
+    $pdo = new PDO($dsn, $user, $pass, $opt);
+    $res = $pdo->prepare("SELECT street, city, state, zipcode FROM restaurant
+INNER JOIN address ON address.id = restaurant.address_id
+WHERE restaurant.id = ?");
+
+    $res->execute([$restaurant_id]);
+    foreach($res as $row){ //for some reason this only works if its in a for loop...
+      //'loop' for the one row...
+      echo "<h1>" . $row["street"] . ", " . $row["city"] . ", " . $row["state"] . ", " . $row["zipcode"] . "</h1>";
+    }
 }
 
 
