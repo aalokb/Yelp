@@ -127,6 +127,7 @@ WHERE restaurant.id = ?");
     }
 }
 
+
 if (isset($_POST["reg_ownership_submit"])){
     // now that we have the correctly generated HTML (extracted from the DB), lets insert the
     // users selected data
@@ -135,9 +136,42 @@ if (isset($_POST["reg_ownership_submit"])){
     $pdo = new PDO($dsn, $user, $pass, $opt);
     $res = $pdo->prepare("INSERT INTO user_restaurant (user_id, restaurant_id) VALUES (?, ?)");
 
-    $res->execute([$user_id,$restaurant_id]);
-    echo "Thanks for registering your restaurant";
+    $res->execute([$user_id, $restaurant_id]);
+    echo "<h1> Thanks for Registering Your Restaurant. </h1>";
 }
+
+
+if (isset($_POST["rm_rest_ownership_submit"])){
+    // now that we have the correctly generated HTML (extracted from the DB), lets insert the
+    // users selected data
+    $restaurant_id = $_POST["restaurant_id"];
+    $user_id = $_POST["user_id"];
+    $pdo = new PDO($dsn, $user, $pass, $opt);
+    $res = $pdo->prepare("DELETE FROM user_restaurant WHERE user_id = ? AND restaurant_id = ?");
+
+    $res->execute([$user_id, $restaurant_id]);
+    echo "<h1> Owner Successfully Removed. </h1>";
+}
+
+
+if (isset($_POST["edit_rest_info_submit"])){
+    // now that we have the correctly generated HTML (extracted from the DB), lets insert the
+    // users selected data
+    $restaurant_id = $_POST["restaurant_id"];
+    $new_name = $_POST["name"];
+    $new_description = $_POST["description"];
+    $new_website = $_POST["website"];
+    $new_category = $_POST["category"];
+
+    $pdo = new PDO($dsn, $user, $pass, $opt);
+    $res = $pdo->prepare("UPDATE restaurant SET name = ?, description = ?, website= ?, type = ? WHERE id= ?");
+
+    $res->execute([$new_name, $new_description, $new_website, $new_category, $restaurant_id]);
+
+    echo "<h1> Restaurant Successfully Updated! </h1>";
+}
+
+
 
 
 ?>
