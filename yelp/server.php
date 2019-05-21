@@ -127,6 +127,19 @@ WHERE restaurant.id = ?");
     }
 }
 
+if (isset($_POST["reg_addr_submit"])){
+    // now that we have the correctly generated HTML (extracted from the DB), lets insert the
+    // users selected data
+    $res_street = $_POST["street"];
+    $res_zip = $_POST["zipcode"];
+    $res_state = $_POST["state"];
+    $res_city = $_POST["city"];
+    $pdo = new PDO($dsn, $user, $pass, $opt);
+    $res = $pdo->prepare("INSERT INTO address (street, zipcode, state, city) VALUES (?, ?, ?, ?)");
+
+    $res->execute([$res_street,$res_zip,$res_state,$res_city]);
+    echo "<h1> Successfully added Address. </h1>";
+}
 
 if (isset($_POST["reg_ownership_submit"])){
     // now that we have the correctly generated HTML (extracted from the DB), lets insert the
@@ -137,7 +150,7 @@ if (isset($_POST["reg_ownership_submit"])){
     $res = $pdo->prepare("INSERT INTO user_restaurant (user_id, restaurant_id) VALUES (?, ?)");
 
     $res->execute([$user_id, $restaurant_id]);
-    echo "<h1> Thanks for Registering Your Restaurant. </h1>";
+    echo "<h1> Thanks for Registering an Owner. </h1>";
 }
 
 
@@ -171,7 +184,20 @@ if (isset($_POST["edit_rest_info_submit"])){
     echo "<h1> Restaurant Successfully Updated! </h1>";
 }
 
+if (isset($_POST["reg_rest_submit"])){
+    // now that we have the correctly generated HTML (extracted from the DB), lets insert the
+    // users selected data
+    $res_name = $_POST["name"];
+    $res_desc = $_POST["description"];
+    $res_web = $_POST["website"];
+    $res_type = $_POST["categories"];
+    $res_add = $_POST["address"];
+    $pdo = new PDO($dsn, $user, $pass, $opt);
+    $res = $pdo->prepare("INSERT INTO restaurant (name, description, address_id, website, type) VALUES (?, ?, ?, ?, ?)");
 
+    $res->execute([$res_name,$res_desc,$res_add,$res_web,$res_type]);
+    echo "<h1> Thanks for Registering a restaurant. </h1>";
+}
 
 
 ?>
