@@ -43,7 +43,7 @@
 	</form>
 
 	<!-- INSERT: restaurant 		CREATE-->
-	<form action="http://web.engr.oregonstate.edu/~borkaraa/DB/yelp/reg_restaurant.php">
+	<form action="http://web.engr.oregonstate.edu/~borkaraa/DB/yelp/reg_rest.php">
     <input type="submit" value="Register a Resaurant" />
 	</form>
 
