@@ -1,9 +1,14 @@
 <!DOCTYPE html>
 <html>
+<head>
+	<link rel="stylesheet" href="style.css">
+</head>
 
 <body>
-	<p>User Actions</p>
-
+	<div class = "title">
+		<p>User Actions</p>
+	</div>
+	<div id = "user">
 	<!-- INSERT: user 		CREATE-->
 	<form action="http://web.engr.oregonstate.edu/~borkaraa/DB/yelp/sign_up.php">
     <input type="submit" value="Sign Up" />
@@ -33,23 +38,25 @@
 	<form action="http://web.engr.oregonstate.edu/~borkaraa/DB/yelp/locate_restaurant.php">
     <input type="submit" value="Locate a Restaurant" />
 	</form>
+	</div>
 
-
-	<p>Restaurant Owner Actions</p>
-
+	<div class = "title">
+		<p>Restaurant Owner Actions</p>
+	</div>
+	<div id = "restaurant">
 	<!-- INSERT: user_restaurant 		CREATE-->
 	<form action="http://web.engr.oregonstate.edu/~borkaraa/DB/yelp/reg_ownership.php">
     <input type="submit" value="Register Ownership of Restaurant" />
 	</form>
 
-	<!-- INSERT: restaurant 		CREATE-->
-	<form action="http://web.engr.oregonstate.edu/~borkaraa/DB/yelp/reg_rest.php">
-    <input type="submit" value="Register a Resaurant" />
-	</form>
-
-	<!-- INSERT: address 		CREATE-->
+		<!-- INSERT: address 		CREATE-->
 	<form action="http://web.engr.oregonstate.edu/~borkaraa/DB/yelp/reg_addr.php">
     <input type="submit" value="Register an Address" />
+	</form>
+
+	<!-- INSERT: restaurant 		CREATE-->
+	<form action="http://web.engr.oregonstate.edu/~borkaraa/DB/yelp/reg_rest.php">
+    <input type="submit" value="Register a Restaurant" />
 	</form>
 
 	<!-- DELETE: many-to-many[user_restaurant] => (remove owner from restaurant) 		
@@ -62,6 +69,7 @@
 	<form action="http://web.engr.oregonstate.edu/~borkaraa/DB/yelp/edit_rest_info.php">
     <input type="submit" value="Edit Restaurant Information" />
 	</form>
+	</div>
 
 </body>
 </html>

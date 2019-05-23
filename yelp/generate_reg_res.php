@@ -19,6 +19,7 @@ $opt = [
 
     echo <<<HTMLINPUT
     <p>Register a Restaurant</p>
+    <p>(Remember to first register an address)</p>
       <form action="reg_rest.php" method="post">
       Name: <input type="text" name="name"><br>
       Description:<input type="text" name="description"><br>
