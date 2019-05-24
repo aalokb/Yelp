@@ -13,13 +13,7 @@
 		E-mail: <input type="text" name="email"><br>
 	 	Username: <input type="text" name="username"><br>
 	 	Password: <input type="password" name="password"><br>
-		<input type="submit" name="sign_up_submit" value="Submit">
+		<input type="submit" name="sign_up_submit" value="Sign Up">
 	</form>
-
-	<!-- for the actual result of the user query -->
-	<span id="sign_up_result">
-
-	</span>
-
 </body>
 </html>

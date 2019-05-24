@@ -17,7 +17,6 @@ if (isset($_POST["sign_up_submit"])){
     $username = $_POST["username"];
     $email = $_POST["email"];
     $password = $_POST["password"];
-
     $pdo = new PDO($dsn, $user, $pass, $opt);
     $res = $pdo->prepare("INSERT INTO user (username, email, password) VALUES (?, ?, ?)");
 
