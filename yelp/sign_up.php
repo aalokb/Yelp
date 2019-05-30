@@ -6,6 +6,7 @@
 <html>
 <head>
 <script src="server.js"></script>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 	<p>Get Started</p>

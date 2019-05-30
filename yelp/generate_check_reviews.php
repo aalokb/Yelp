@@ -18,7 +18,7 @@ $opt = [
 
 
     echo <<<HTMLINPUT
-        <p>Find a Restaurant's Reviews</p>
+        <p>Check a Restaurant's Reviews</p>
         Select Restaurant:
         <form action="check_reviews.php" method="post">
             <select name="restaurant_id">

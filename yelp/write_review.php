@@ -1,6 +1,9 @@
 
 <!DOCTYPE html>
 <html>
+<head>
+	<link rel="stylesheet" href="style.css">
+</head>
 <body>
 
 	<!-- going to use PHP to build the rest of the page since it is dynamic -->

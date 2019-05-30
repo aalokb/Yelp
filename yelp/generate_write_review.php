@@ -20,7 +20,6 @@ $opt = [
     echo <<<HTMLINPUT
     <p>Review a Restaurant</p><br>
     <form action="write_review.php" method="post">
-
         User ID: <input type="text" name="user_id"><br>
         Restaurant:
         <select name="restaurant_id">

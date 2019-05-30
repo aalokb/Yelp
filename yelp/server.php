@@ -58,7 +58,7 @@ WHERE user.id = ?
 OR restaurant.id = ?
 OR  review.content  LIKE ?");
 
-  $res->execute([$username,$restaurant,$keyword]);
+  $res->execute([$username, $restaurant, $keyword]);
 
   foreach($res as $row){
     echo "<h1>Content: " . $row["content"] . "</h1>";

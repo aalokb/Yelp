@@ -21,7 +21,7 @@
 
 	<!-- SELECT: dynamic filter search a table (review) 	READ-->
 	<form action="http://web.engr.oregonstate.edu/~borkaraa/DB/yelp/find_review.php">
-    <input type="submit" value="Find a Review" />
+    <input type="submit" value="Find Specific Reviews" />
     </form>
 
     <!-- SELECT: user_restaurant, restaurant 		READ-->

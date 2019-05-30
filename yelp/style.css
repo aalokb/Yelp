@@ -4,7 +4,8 @@ body {
 
 p {
 	font-family: Sans-serif;
-	font-size: 28px;
+	font-weight: 700;
+	font-size: 30px;
 }
 
 .title {
@@ -32,6 +33,10 @@ p {
 	height: 140px;
 	margin: auto;
 	border: 3px solid black;
+}
+
+input {
+	align: ;
 }
 
 input[type="submit"]{
@@ -73,6 +78,3 @@ input[type="submit"]:active {
 	position:relative;
 	top:1px;
 }
-
-
-
