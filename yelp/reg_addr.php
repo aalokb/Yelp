@@ -1,5 +1,8 @@
 <!DOCTYPE html>
 <html>
+<head>
+	<link rel="stylesheet" href="style.css">
+</head>
 <body>
 	<p>Register an Address</p>
 	    <form action="reg_addr.php" method="post">
